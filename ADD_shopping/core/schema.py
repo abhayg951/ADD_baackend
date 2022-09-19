@@ -7,15 +7,16 @@ class Producttype(DjangoObjectType):
         model = Product
         fields = (
             'id',
-            'category',
-            'title',
-            'price',
-            'image',
+            'image1',
+            'brand',
+            'item',
+            'mrp',
             'discount', 
-            'description',
             'status',
+            'product_details',
+            'style_note',
             'date_created',
-            'unique_id'
+            'slug'
         )  
 
 
