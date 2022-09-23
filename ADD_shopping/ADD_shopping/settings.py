@@ -42,7 +42,6 @@ INSTALLED_APPS = [
     "django.contrib.messages",
     "django.contrib.staticfiles",
     "core",
-    "graphene_django",
     'cloudinary_storage',
     'cloudinary',
     'corsheaders',
@@ -130,9 +129,6 @@ STATIC_URL = "static/"
 
 DEFAULT_AUTO_FIELD = "django.db.models.BigAutoField"
 
-GRAPHENE = {
-    'SCHEMA': 'core.schema.schema'
-}
 
 '''
 cloudinary modules imported here
