@@ -18,21 +18,3 @@ class ProductSerializer(serializers.ModelSerializer):
             'date_created',
             'slug'
             ]
-
-
-class itemcardser(serializers.ModelSerializer):
-    class Meta:
-        model = itemcard
-        fields = [
-            'image',
-            'brand',
-            'mrp'
-        ]
-
-
-class contactus(serializers.ModelSerializer):
-    class Meta:
-        model = contact_us
-        fields = [
-            'name'
-        ]

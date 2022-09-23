@@ -24,8 +24,6 @@ from core import views
 
 router = routers.DefaultRouter()
 router.register(r'Product', views.Productview, 'Product')
-router.register(r'itemcard', views.Cardview, 'itemcard')
-router.register(r'contactus', views.Contactusview, 'contact_us')
 
 urlpatterns = [
     path("admin/", admin.site.urls),
