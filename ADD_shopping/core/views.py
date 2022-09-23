@@ -1,7 +1,7 @@
-from django.shortcuts import render
+# from django.shortcuts import render
 from rest_framework import viewsets
-from rest_framework.views import APIView
-from rest_framework import generics 
+# from rest_framework.views import APIView
+# from rest_framework import generics 
 from .serializer import *
 from .models import Product
 from django_filters.rest_framework import DjangoFilterBackend

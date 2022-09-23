@@ -26,9 +26,8 @@ router = routers.DefaultRouter()
 router.register(r'Product', views.Productview, 'Product')
 
 urlpatterns = [
-    path("admin/", admin.site.urls),
+    path("", admin.site.urls),
     # path("graphql", GraphQLView.as_view(graphiql=True, schema=schema)),
     # path("graphql", FileUploadGraphQLView.as_view(graphiql=True, schema=schema)),
-    # path('wel/', ReactView.as_view(), name="something")
     path('api/', include(router.urls)),
 ]
