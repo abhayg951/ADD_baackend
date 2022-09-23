@@ -1,7 +1,7 @@
 from django.db import models
 from django.db.models import Model
-import cloudinary
-from cloudinary.models import CloudinaryField
+# import cloudinary
+# from cloudinary.models import CloudinaryField
 
 # Create your models here.
 class Product(models.Model):
@@ -41,3 +41,4 @@ class itemcard(models.Model):
 
 class contact_us(models.Model):
     name = models.CharField(max_length=100)
+    email = models.EmailField(null= True)
