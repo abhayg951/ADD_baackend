@@ -45,6 +45,8 @@ INSTALLED_APPS = [
     "graphene_django",
     'cloudinary_storage',
     'cloudinary',
+    'corsheaders',
+    'rest_framework',
 ]
 
 MIDDLEWARE = [
@@ -55,6 +57,7 @@ MIDDLEWARE = [
     "django.contrib.auth.middleware.AuthenticationMiddleware",
     "django.contrib.messages.middleware.MessageMiddleware",
     "django.middleware.clickjacking.XFrameOptionsMiddleware",
+    'corsheaders.middleware.CorsMiddleware',
 ]
 
 
@@ -155,3 +158,7 @@ cloudinary.config(
   api_secret = "tiH6Pt9y17Aj1k2OOg_eAX9LzxI",
   secure = True
 )
+
+CORS_ORIGIN_WHITELIST = [
+     'http://localhost:3000'
+]
