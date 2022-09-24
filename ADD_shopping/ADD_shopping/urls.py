@@ -18,18 +18,14 @@ from django.urls import path, include
 # from graphene_django.views import GraphQLView
 # from graphene_file_upload.django import FileUploadGraphQLView
 # from core.schema import schema
-from core.views import Productview
-from rest_framework import routers
-from core import views
-
-router = routers.DefaultRouter()
-router.register(r'Product', views.Productview, 'Product')
+# from rest_framework import routers
+# from core.api import views
 
 urlpatterns = [
     path("admin/", admin.site.urls),
     # path("graphql", GraphQLView.as_view(graphiql=True, schema=schema)),
     # path("graphql", FileUploadGraphQLView.as_view(graphiql=True, schema=schema)),
-    path('', include(router.urls)),
+    path('', include('core.api.urls'))
 ]
 
 admin.site.site_header = "ADD Admin"
