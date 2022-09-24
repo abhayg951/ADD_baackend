@@ -13,3 +13,5 @@ class Productview(viewsets.ModelViewSet):
     queryset = Product.objects.all()
     filter_backends = [DjangoFilterBackend]
     filterset_fields = ['id', 'brand', 'item', 'date_created']
+
+# class cardview(viewsets.ModelViewSet):

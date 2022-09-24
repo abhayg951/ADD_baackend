@@ -26,8 +26,12 @@ router = routers.DefaultRouter()
 router.register(r'Product', views.Productview, 'Product')
 
 urlpatterns = [
-    path("", admin.site.urls),
+    path("admin/", admin.site.urls),
     # path("graphql", GraphQLView.as_view(graphiql=True, schema=schema)),
     # path("graphql", FileUploadGraphQLView.as_view(graphiql=True, schema=schema)),
-    path('api/', include(router.urls)),
+    path('', include(router.urls)),
 ]
+
+admin.site.site_header = "ADD Admin"
+admin.site.site_title = "ADD Portal"
+admin.site.index_title = "ADD administration portal"

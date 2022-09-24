@@ -1,12 +1,22 @@
+from distutils.text_file import TextFile
 from django.db import models
 from django.db.models import Model
+from phonenumber_field.modelfields import PhoneNumberField
 # import cloudinary
 # from cloudinary.models import CloudinaryField
 
+CATEGORY_CHOICES = (
+    ('S', 'Shirt'),
+    ('WW', 'Winter Wear'),
+    ('TP', 'Top wear'),
+    ('BP', 'Bottom wear'),
+    ('FW', 'Foot wear'),
+)
+
 # Create your models here.
 class Product(models.Model):
+    category = models.CharField(choices=CATEGORY_CHOICES, max_length=2, null=True)
     image = models.ImageField(upload_to='items/', blank = True)
-    # image = CloudinaryField('image')
     # icon = CloudinaryField('image', null=True, blank=True)
     brand = models.CharField(max_length=150)
     item = models.TextField()
@@ -38,7 +48,15 @@ class itemcard(models.Model):
         max_digits=7, 
         decimal_places=2,
         null = True)
+    discount_Percentage = models.DecimalField(
+        max_digits=7,
+        decimal_places=2,
+        null = True)
+    rating = models.IntegerField(null = True)
 
 class contact_us(models.Model):
-    name = models.CharField(max_length=100)
+    first_name = models.CharField(max_length=100)
+    last_name = models.CharField(max_length=100)
     email = models.EmailField(null= True)
+    phone = PhoneNumberField(region= 'IN')
+    desc = models.TextField(null=True)
