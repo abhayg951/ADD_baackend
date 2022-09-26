@@ -10,12 +10,9 @@ from django_filters.rest_framework import DjangoFilterBackend
 
 class Productview(viewsets.ModelViewSet):
     serializer_class = ProductSerializer
-
     def get_queryset(self):
         productlist = Product.objects.all()
         return productlist
     filter_backends = [DjangoFilterBackend]
     filterset_fields = ['id', 'brand', 'item', 'date_created']
     # queryset = Product.objects.all()
-
-# class cardview(viewsets.ModelViewSet):
