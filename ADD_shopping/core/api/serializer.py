@@ -19,3 +19,4 @@ class ProductSerializer(serializers.ModelSerializer):
             'date_created',
             'slug'
             ]
+
