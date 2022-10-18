@@ -20,7 +20,7 @@ class Product(models.Model):
     image = models.ForeignKey('mult_img',related_name = "photo",on_delete=models.CASCADE)
     # icon = CloudinaryField('image', null=True, blank=True)
     brand = models.CharField(max_length=150)
-    item = models.TextField()
+    item_name = models.TextField()
     original_mrp = models.DecimalField(
         max_digits=7, 
         decimal_places=2,
@@ -42,29 +42,29 @@ class Product(models.Model):
     def __str__(self):
         return self.brand
 
-class itemcard(models.Model):
-    # image = models.ForeignKey('pics',  on_delete=models.CASCADE)
-    pics = models.ImageField(upload_to='items/', blank = True)
-    brand = models.CharField(max_length=150)
-    original_mrp = models.DecimalField(
-        max_digits=7, 
-        decimal_places=2,
-        null = True)
-    discounted_mrp = models.DecimalField(
-        max_digits=7,
-        decimal_places=2,
-        null = True)
-    rating = models.IntegerField(null = True)
+# class itemcard(models.Model):
+#     # image = models.ForeignKey('pics',  on_delete=models.CASCADE)
+#     pics = models.ImageField(upload_to='items/', blank = True)
+#     brand = models.CharField(max_length=150)
+#     original_mrp = models.DecimalField(
+#         max_digits=7, 
+#         decimal_places=2,
+#         null = True)
+#     discounted_mrp = models.DecimalField(
+#         max_digits=7,
+#         decimal_places=2,
+#         null = True)
+#     rating = models.IntegerField(null = True)
 
-    def __str__(self) -> str:
-        return self.brand
+    # def __str__(self) -> str:
+    #     return self.brand
 
-class contact_us(models.Model):
-    first_name = models.CharField(max_length=100)
-    last_name = models.CharField(max_length=100)
-    email = models.EmailField(null= True)
-    phone = PhoneNumberField(region= 'IN')
-    desc = models.TextField(null=True)
+# class contact_us(models.Model):
+#     first_name = models.CharField(max_length=100)
+#     last_name = models.CharField(max_length=100)
+#     email = models.EmailField(null= True)
+#     phone = PhoneNumberField(region= 'IN')
+#     desc = models.TextField(null=True)
 
 '''
 ---------------------------for multiple images-----------------------------------'''

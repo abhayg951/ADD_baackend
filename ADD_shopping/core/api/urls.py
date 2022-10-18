@@ -7,7 +7,7 @@ from rest_framework.urlpatterns import format_suffix_patterns
 # router = routers.DefaultRouter()
 router = routers.DefaultRouter()
 router.register(r'products', views.Productlist, 'Product')
-router.register(r'cards', views.Cardslist, 'Card')
+# router.register(r'cards', views.Cardslist, 'Card')
 # router.register(r'Product', views.Productview, 'Product')
 
 urlpatterns = [

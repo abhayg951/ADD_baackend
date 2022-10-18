@@ -20,14 +20,14 @@ class ProductSerializer(serializers.ModelSerializer):
             'slug'
             ]
 
-class carsSerializer(serializers.ModelSerializer):
-    class Meta:
-        model = itemcard
-        fields =[
-            'id',
-            'pics',
-            'brand',
-            'original_mrp',
-            'discounted_mrp',
-            'rating'
-        ]
+# class cardsSerializer(serializers.ModelSerializer):
+#     class Meta:
+#         model = itemcard
+#         fields =[
+#             'id',
+#             'pics',
+#             'brand',
+#             'original_mrp',
+#             'discounted_mrp',
+#             'rating'
+#         ]
