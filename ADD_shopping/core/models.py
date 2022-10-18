@@ -18,6 +18,7 @@ CATEGORY_CHOICES = (
 class Product(models.Model):
     category = models.CharField(choices=CATEGORY_CHOICES, max_length=2, null=True)
     image = models.ForeignKey('mult_img',related_name = "photo",on_delete=models.CASCADE)
+    # image = models.ImageField(upload_to='items/', blank = True)
     # icon = CloudinaryField('image', null=True, blank=True)
     brand = models.CharField(max_length=150)
     item_name = models.TextField()
@@ -25,11 +26,12 @@ class Product(models.Model):
         max_digits=7, 
         decimal_places=2,
         null = True)
-    discounted_mrp = models.DecimalField(
+    discounted_percent = models.DecimalField(("discount  %"),
         max_digits=7,
         decimal_places=2,
         null = True)
     status = models.BooleanField()
+    quantity = models.IntegerField(null = True)
     rating = models.IntegerField(null = True)
     product_details = models.TextField(null=True)
     date_created = models.DateField(auto_now_add=True)
