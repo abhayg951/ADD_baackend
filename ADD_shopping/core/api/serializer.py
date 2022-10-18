@@ -11,8 +11,8 @@ class ProductSerializer(serializers.ModelSerializer):
             'image',
             'brand',
             'item',
-            'mrp',
-            'discount_Percentage', 
+            'original_mrp',
+            'discounted_mrp', 
             'status',
             'rating',
             'product_details',
@@ -20,3 +20,14 @@ class ProductSerializer(serializers.ModelSerializer):
             'slug'
             ]
 
+class carsSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = itemcard
+        fields =[
+            'id',
+            'pics',
+            'brand',
+            'original_mrp',
+            'discounted_mrp',
+            'rating'
+        ]

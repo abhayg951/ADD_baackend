@@ -25,7 +25,7 @@ urlpatterns = [
     path("admin/", admin.site.urls),
     # path("graphql", GraphQLView.as_view(graphiql=True, schema=schema)),
     # path("graphql", FileUploadGraphQLView.as_view(graphiql=True, schema=schema)),
-    path('', include('core.api.urls'))
+    path("", include('core.api.urls'))
 ]
 
 admin.site.site_header = "ADD Admin"

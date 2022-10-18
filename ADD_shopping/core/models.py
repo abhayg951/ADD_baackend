@@ -17,15 +17,15 @@ CATEGORY_CHOICES = (
 # Create your models here.
 class Product(models.Model):
     category = models.CharField(choices=CATEGORY_CHOICES, max_length=2, null=True)
-    image = models.ImageField(upload_to='items/', blank = True)
+    image = models.ForeignKey('mult_img',related_name = "photo",on_delete=models.CASCADE)
     # icon = CloudinaryField('image', null=True, blank=True)
     brand = models.CharField(max_length=150)
     item = models.TextField()
-    mrp = models.DecimalField(
+    original_mrp = models.DecimalField(
         max_digits=7, 
         decimal_places=2,
         null = True)
-    discount_Percentage = models.DecimalField(
+    discounted_mrp = models.DecimalField(
         max_digits=7,
         decimal_places=2,
         null = True)
@@ -43,17 +43,21 @@ class Product(models.Model):
         return self.brand
 
 class itemcard(models.Model):
-    image = models.ImageField(upload_to='items/', blank = True)
+    # image = models.ForeignKey('pics',  on_delete=models.CASCADE)
+    pics = models.ImageField(upload_to='items/', blank = True)
     brand = models.CharField(max_length=150)
-    mrp = models.DecimalField(
+    original_mrp = models.DecimalField(
         max_digits=7, 
         decimal_places=2,
         null = True)
-    discount_Percentage = models.DecimalField(
+    discounted_mrp = models.DecimalField(
         max_digits=7,
         decimal_places=2,
         null = True)
     rating = models.IntegerField(null = True)
+
+    def __str__(self) -> str:
+        return self.brand
 
 class contact_us(models.Model):
     first_name = models.CharField(max_length=100)
@@ -61,3 +65,17 @@ class contact_us(models.Model):
     email = models.EmailField(null= True)
     phone = PhoneNumberField(region= 'IN')
     desc = models.TextField(null=True)
+
+'''
+---------------------------for multiple images-----------------------------------'''
+
+class mult_img(models.Model):
+    brand = models.CharField(max_length=50, null=True)
+    image1 = models.ImageField(upload_to='items/', blank = True)
+    image2 = models.ImageField(upload_to='items/', blank = True)
+    image3 = models.ImageField(upload_to='items/', blank = True)
+    image4 = models.ImageField(upload_to='items/', blank = True)
+    image5 = models.ImageField(upload_to='items/', blank = True)
+
+    def __str__(self):
+        return self.brand
