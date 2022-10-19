@@ -23,10 +23,7 @@ class Product(models.Model):
     # icon = CloudinaryField('image', null=True, blank=True)
     brand = models.CharField(max_length=150)
     item_name = models.TextField()
-    original_mrp = models.DecimalField(
-        max_digits=7, 
-        decimal_places=2,
-        null = True)
+    original_mrp = models.IntegerField(null = True)
     discounted_percent = models.DecimalField(("discount  %"),
         max_digits=7,
         decimal_places=2,
