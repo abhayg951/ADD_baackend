@@ -15,11 +15,10 @@ class ProductSerializer(serializers.ModelSerializer):
             'discounted_percent', 
             'status',
             'rating',
-            'quantity',
+            'stock',
             'product_details',
-            'date_created',
-            'slug'
-            ]
+            'date_created'
+        ]
 
 class multSerializer(serializers.Serializer):
     class Meta:
@@ -32,6 +31,19 @@ class multSerializer(serializers.Serializer):
             'image3',
             'image4',
             'image5',
+        ]
+
+class ctgSerializer(serializers.ModelSerializer):
+    # prdt = ProductSerializer(many = True)
+    class Meta:
+        model = Category
+        fields = [
+            'category1',
+            'category2',
+            'category3',
+            'category4',
+            'category5',
+            'category6',
         ]
 # class cardsSerializer(serializers.ModelSerializer):
 #     class Meta:

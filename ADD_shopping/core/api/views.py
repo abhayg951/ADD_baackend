@@ -12,9 +12,9 @@ class Productlist(viewsets.ModelViewSet):
     serializer_class = ProductSerializer
     queryset = Product.objects.all()
 
-# class Cardslist(viewsets.ModelViewSet):
-#     serializer_class = carsSerializer
-#     queryset = itemcard.objects.all()
+class ctglist(viewsets.ModelViewSet):
+    serializer_class = ctgSerializer
+    queryset = Category.objects.all()
 
 
 

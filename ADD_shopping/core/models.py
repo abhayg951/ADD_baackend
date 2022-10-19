@@ -7,18 +7,19 @@ from phonenumber_field.modelfields import PhoneNumberField
 # from cloudinary.models import CloudinaryField
 
 CATEGORY_CHOICES = (
-    ('S', 'Shirt'),
-    ('WW', 'Winter Wear'),
-    ('TP', 'Top wear'),
-    ('BP', 'Bottom wear'),
-    ('FW', 'Foot wear'),
+    ('Winter Wear','Winter Wear'),
+    ('Summer Wear','Summer Wear'),
+    ('Top wear', 'Top wear'),
+    ('Bottom Wear', 'Bottom Wear'),
+    ('Foot wear', 'Foot wear'),
+    ('Null', 'Null'),
 )
 
 # Create your models here.
 class Product(models.Model):
-    category = models.CharField(choices=CATEGORY_CHOICES, max_length=2, null=True)
-    image = models.ForeignKey('mult_img',related_name = "photo",on_delete=models.CASCADE)
-    # image = models.ImageField(upload_to='items/', blank = True)
+    category = models.CharField(choices=CATEGORY_CHOICES, max_length=200, null=True)
+    # image = models.ForeignKey('mult_img',related_name = "photo",on_delete=models.CASCADE)
+    image = models.ImageField(upload_to='items/', blank = True)
     # icon = CloudinaryField('image', null=True, blank=True)
     brand = models.CharField(max_length=150)
     item_name = models.TextField()
@@ -31,11 +32,10 @@ class Product(models.Model):
         decimal_places=2,
         null = True)
     status = models.BooleanField()
-    quantity = models.IntegerField(null = True)
+    stock = models.IntegerField(null = True)
     rating = models.IntegerField(null = True)
     product_details = models.TextField(null=True)
     date_created = models.DateField(auto_now_add=True)
-    slug = models.CharField(max_length=150, null = True)
     
     
     class Meta:
@@ -81,3 +81,14 @@ class mult_img(models.Model):
 
     def __str__(self):
         return self.brand
+
+'''-------------------------------xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx-----------------------------------------'''
+
+class Category(models.Model):
+    category1 = models.CharField(max_length=100, null=True)
+    category2 = models.CharField(max_length=100, null=True)
+    category3 = models.CharField(max_length=100, null=True)
+    category4 = models.CharField(max_length=100, null=True)
+    category5 = models.CharField(max_length=100, null=True)
+    category6 = models.CharField(max_length=100, null=True)
+    # prdt = models.ForeignKey(Product, blank = True, null = True, on_delete=models.CASCADE)
